@@ -46,14 +46,15 @@ def crawl(parent):
     f.write('{0:10s} | {1:4s}\n'.format('Tag', 'Count'))
 
     for tag in tagDict:
-        print("{0:10s} : {1:3d}".format(tag, tagDict[tag]))
-        f.write("{0:10s} : {1:4d}\n".format(tag, tagDict[tag]))
+    	if tagDict[tag] != 0:
+	        print("{0:10s} : {1:3d}".format(tag, tagDict[tag]))
+	        f.write("{0:10s} : {1:4d}\n".format(tag, tagDict[tag]))
 
     f.close()
     # print(visitedUrls)
 
 if __name__ == '__main__':
     # Add websites here
-    toBeCrawled = ['http://jmi.ac.in', 'http://fiction.csijmi.com']
+    toBeCrawled = ['http://fiction.csijmi.com']
     for url in toBeCrawled:
         crawl(url)
